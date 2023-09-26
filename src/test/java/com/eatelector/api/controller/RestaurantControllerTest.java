@@ -76,7 +76,7 @@ class RestaurantControllerTest {
         ResponseDto responseDto = new ObjectMapper()
                 .readValue(result.getResponse().getContentAsString(), ResponseDto.class);
         assertEquals("ERROR", responseDto.getStatus().name());
-        assertEquals("Length of the restaurant name must be between 1 to 100 characters.",
+        assertEquals("Restaurant name can not be empty.",
                 responseDto.getMessage());
 
     }
