@@ -67,8 +67,9 @@ like Postman, cURL, or any HTTP client.
 
 Endpoints provided by the API:
 
-- `POST /restaurant`: Add new restaurant.
-- `GET /restaurant/random`: Select random restaurant.
+- `POST /restaurants`: Add new restaurant.
+- `GET /restaurants/random`: Select random restaurant.
+- `DELETE /restaurants`: Delete all restaurants.
 
 ## Testing
 The Eat-Elector-API includes unit tests to ensure the correctness of its functionality. Mockito is used for mocking 

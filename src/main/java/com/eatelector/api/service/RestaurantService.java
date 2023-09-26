@@ -3,6 +3,7 @@ package com.eatelector.api.service;
 import com.eatelector.api.dto.AddRestaurantRequestDto;
 import com.eatelector.api.dto.AddRestaurantResponseDto;
 import com.eatelector.api.dto.GetRandomRestaurantResponseDto;
+import com.eatelector.api.dto.ResponseDto;
 import com.eatelector.api.entity.Restaurant;
 import com.eatelector.api.enums.ResponseStatus;
 import com.eatelector.api.exception.ApiException;
@@ -84,5 +85,18 @@ public class RestaurantService {
 
     }
 
+    public ResponseDto deleteAllRestaurants() {
+        try {
+            restaurantRepository.deleteAll();
 
+            return ResponseDto.builder()
+                    .status(ResponseStatus.SUCCESS)
+                    .message("All restaurants deleted successfully.")
+                    .build();
+
+        } catch (Exception e) {
+            log.error("Failed to delete all restaurants. Error: {}", e.getMessage());
+            throw new ApiException("Failed to delete restaurants. Please try again later.");
+        }
+    }
 }
